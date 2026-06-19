@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Send, Loader2, CheckCircle, AlertCircle } from 'lucide-react';
+import { X, Send, Loader2, CheckCircle, AlertCircle, ChevronDown } from 'lucide-react';
 import { useState, FormEvent } from 'react';
 import { sendToTelegram } from '../lib/telegram';
 
@@ -8,22 +8,35 @@ interface FloatingPanelProps {
   onClose: () => void;
 }
 
+const services = [
+  'Instagram SMM',
+  'Контент-стратегія',
+  'Візуальне оформлення',
+  'Reels та відео',
+  'Особистий бренд',
+  'Консультація',
+];
+
 export function FloatingPanel({ isOpen, onClose }: FloatingPanelProps) {
   const [name, setName] = useState('');
   const [contact, setContact] = useState('');
+  const [service, setService] = useState('');
+  const [message, setMessage] = useState('');
   const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
   const [errorText, setErrorText] = useState('');
 
   function handleSubmit(e: FormEvent) {
     e.preventDefault();
-    if (!name.trim() || !contact.trim()) return;
+    if (!name.trim() || !contact.trim() || !service) return;
 
     setStatus('sending');
-    sendToTelegram({ name, contact, service: 'Консультація', message: '' })
+    sendToTelegram({ name, contact, service, message })
       .then(() => {
         setStatus('success');
         setName('');
         setContact('');
+        setService('');
+        setMessage('');
         setTimeout(() => { setStatus('idle'); onClose(); }, 2000);
       })
       .catch((err) => {
@@ -115,6 +128,27 @@ export function FloatingPanel({ isOpen, onClose }: FloatingPanelProps) {
                     onChange={(e) => setContact(e.target.value)}
                     placeholder="@username або телефон"
                     className="w-full rounded-2xl bg-bg px-4 py-3.5 text-sm text-dark placeholder-secondary/50 outline-none ring-1 ring-transparent transition-all focus:ring-primary/30"
+                  />
+                  <div className="relative">
+                    <select
+                      required
+                      value={service}
+                      onChange={(e) => setService(e.target.value)}
+                      className="w-full appearance-none rounded-2xl bg-bg px-4 py-3.5 pr-10 text-sm text-dark outline-none ring-1 ring-transparent transition-all focus:ring-primary/30"
+                    >
+                      <option value="" disabled>Оберіть послугу</option>
+                      {services.map((s) => (
+                        <option key={s} value={s}>{s}</option>
+                      ))}
+                    </select>
+                    <ChevronDown className="pointer-events-none absolute right-4 top-1/2 h-4 w-4 -translate-y-1/2 text-secondary" />
+                  </div>
+                  <textarea
+                    value={message}
+                    onChange={(e) => setMessage(e.target.value)}
+                    placeholder="Повідомлення (необов'язково)"
+                    rows={3}
+                    className="w-full resize-none rounded-2xl bg-bg px-4 py-3.5 text-sm text-dark placeholder-secondary/50 outline-none ring-1 ring-transparent transition-all focus:ring-primary/30"
                   />
                 </div>
 
