@@ -1,21 +1,26 @@
 import { motion } from 'framer-motion';
-import { Heart, MessageCircle, Bookmark, TrendingUp, Target, Users, BarChart3, Star, ArrowUpRight } from 'lucide-react';
+import { Heart, MessageCircle, Bookmark, TrendingUp, Target, Users, BarChart3, Star, Instagram, Globe, Phone } from 'lucide-react';
 import { AnimatedSection } from '../components/AnimatedSection';
 
 const topCase = {
-  brand: 'Beauty Studio',
-  tagline: 'Салон краси Ella Beauty',
-  description: 'Повний ребрендинг + SMM-стратегія. За 3 місяці вивели акаунт із 800 до 15 000 підписників і заповнили запис на 2 тижні вперед.',
+  brand: 'Eden Resort',
+  tagline: 'Заміський комплекс на Київському морі',
+  description: 'Boutique hotel на березі Київського моря в с. Ясногородка. 60 номерів, відкритий басейн з підігрівом, фінська та японська сауни, ресторан, піщаний пляж, конференц-зал. Комплексне SMM-просування + таргетована реклама.',
   metric: '+320%',
   metricLabel: 'охоплення',
-  likes: '12.4K',
-  comments: '342',
+  likes: '15.2K',
+  comments: '486',
   results: [
-    { icon: Users, value: '15 000+', label: 'підписників' },
+    { icon: Users, value: '8 500+', label: 'підписників' },
     { icon: BarChart3, value: '320%', label: 'охоплення' },
-    { icon: Target, value: '100+', label: 'записів' },
+    { icon: Target, value: '200+', label: 'бронювань' },
   ],
-  image: 'bg-gradient-to-br from-rose-200 via-rose-100 to-orange-50',
+  image: 'bg-gradient-to-br from-emerald-200 via-teal-100 to-sky-50',
+  links: [
+    { icon: Instagram, href: 'https://www.instagram.com/ganedenresort/', label: 'ganedenresort' },
+    { icon: Globe, href: 'https://www.edenresort.com.ua/', label: 'edenresort.com.ua' },
+    { icon: Phone, href: 'tel:+380677144133', label: '+38 (067) 714-41-33' },
+  ],
 };
 
 function PhoneMockup() {
@@ -127,14 +132,25 @@ export function Cases() {
                 ))}
               </div>
 
-              <motion.a
-                href="#"
-                whileHover={{ scale: 1.03, x: 4 }}
-                className="group inline-flex items-center gap-2 text-lg font-semibold text-primary transition-colors hover:text-primary-hover"
-              >
-                Подивитись кейс повністю
-                <ArrowUpRight className="h-5 w-5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-              </motion.a>
+              <div className="flex flex-wrap gap-3">
+                {topCase.links.map((link, i) => (
+                  <motion.a
+                    key={link.label}
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    initial={{ opacity: 0, y: 12 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: 0.6 + i * 0.08 }}
+                    whileHover={{ scale: 1.04, y: -2 }}
+                    className="inline-flex items-center gap-2 rounded-full border border-secondary/20 bg-white px-5 py-2.5 text-sm font-medium text-dark shadow-sm transition-all hover:border-primary/30 hover:text-primary"
+                  >
+                    <link.icon className="h-4 w-4" />
+                    {link.label}
+                  </motion.a>
+                ))}
+              </div>
             </div>
           </AnimatedSection>
         </div>
