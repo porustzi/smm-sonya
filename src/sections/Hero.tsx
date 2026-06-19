@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
-import { Instagram, MessageCircle, ArrowRight, TrendingUp, FileText, Video, User } from 'lucide-react';
+import { Instagram, TrendingUp, FileText, Video, User, ExternalLink } from 'lucide-react';
 import { FloatingBlob } from '../components/FloatingBlob';
+import { BookingForm } from '../components/BookingForm';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -26,7 +27,9 @@ interface HeroProps {
   onOpenBooking: () => void;
 }
 
-export function Hero({ onOpenBooking }: HeroProps) {
+const tgUser = '@svrnss';
+
+export function Hero(_props: HeroProps) {
   return (
     <section className="relative min-h-screen w-full overflow-hidden bg-bg px-6 py-20 lg:px-16 xl:px-24">
       {/* Floating blobs */}
@@ -70,24 +73,17 @@ export function Hero({ onOpenBooking }: HeroProps) {
             Допомагаю бізнесу, експертам та особистим брендам залучати клієнтів через контент, стратегію та сучасний SMM.
           </motion.p>
 
-          <motion.div variants={itemVariants} className="mb-12 flex flex-wrap gap-4">
-            <motion.button
-              whileHover={{ scale: 1.03, y: -2 }}
-              whileTap={{ scale: 0.98 }}
-              onClick={onOpenBooking}
-              className="group inline-flex items-center gap-3 rounded-full bg-dark px-8 py-4 text-sm font-semibold text-white shadow-lg shadow-dark/10 transition-colors hover:bg-dark/90"
+          <motion.div variants={itemVariants} className="mb-12 w-full max-w-lg">
+            <BookingForm compact />
+            <motion.a
+              href={`https://t.me/${tgUser.replace('@', '')}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-3 inline-flex items-center gap-1.5 text-sm text-secondary transition-colors hover:text-primary"
             >
-              Обговорити проєкт
-              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </motion.button>
-            <motion.button
-              whileHover={{ scale: 1.03, y: -2 }}
-              whileTap={{ scale: 0.98 }}
-              className="inline-flex items-center gap-2 rounded-full border border-secondary/20 bg-white px-8 py-4 text-sm font-semibold text-dark transition-colors hover:bg-secondary/5"
-            >
-              <MessageCircle className="h-4 w-4" />
-              Telegram
-            </motion.button>
+              <ExternalLink className="h-3.5 w-3.5" />
+              {tgUser}
+            </motion.a>
           </motion.div>
 
           <motion.div variants={itemVariants} className="flex gap-12">
