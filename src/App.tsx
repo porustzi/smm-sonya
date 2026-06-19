@@ -10,6 +10,17 @@ import { ContactCTA } from './sections/ContactCTA';
 import { Footer } from './sections/Footer';
 import { FloatingPanel } from './components/FloatingPanel';
 
+function SkipLink() {
+  return (
+    <a
+      href="#main-content"
+      className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:rounded-full focus:bg-dark focus:px-6 focus:py-3 focus:text-sm focus:font-semibold focus:text-white focus:shadow-lg"
+    >
+      Перейти до контенту
+    </a>
+  );
+}
+
 function App() {
   const [isPanelOpen, setPanelOpen] = useState(false);
   const [panelPurpose, setPanelPurpose] = useState<'project' | 'consultation'>('project');
@@ -20,7 +31,8 @@ function App() {
   }
 
   return (
-    <main className="min-h-screen w-full bg-bg font-manrope" role="main" aria-label="SMM Specialist сторінка">
+    <main id="main-content" className="min-h-screen w-full bg-bg font-manrope" role="main" aria-label="SMM Specialist сторінка">
+      <SkipLink />
       <Hero onOpenBooking={() => openPanel('project')} />
       <Services />
       <Cases />
