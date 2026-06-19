@@ -1,4 +1,6 @@
-import { Instagram, MessageCircle, Mail } from 'lucide-react';
+import { MessageCircle } from 'lucide-react';
+
+const tgUser = '@svrnss';
 
 export function Footer() {
   return (
@@ -10,25 +12,13 @@ export function Footer() {
 
         <div className="flex items-center gap-6">
           <a
-            href="#"
-            className="flex items-center gap-2 text-sm font-medium text-secondary transition-colors hover:text-dark"
-          >
-            <Instagram className="h-4 w-4" />
-            Instagram
-          </a>
-          <a
-            href="#"
+            href={`https://t.me/${tgUser.replace('@', '')}`}
+            target="_blank"
+            rel="noopener noreferrer"
             className="flex items-center gap-2 text-sm font-medium text-secondary transition-colors hover:text-dark"
           >
             <MessageCircle className="h-4 w-4" />
-            Telegram
-          </a>
-          <a
-            href="#"
-            className="flex items-center gap-2 text-sm font-medium text-secondary transition-colors hover:text-dark"
-          >
-            <Mail className="h-4 w-4" />
-            Email
+            {tgUser}
           </a>
         </div>
       </div>
