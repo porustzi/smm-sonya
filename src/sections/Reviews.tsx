@@ -28,7 +28,7 @@ const reviews = [
 
 export function Reviews() {
   return (
-    <section className="relative w-full bg-bg px-6 py-24 md:px-12 lg:px-16 xl:px-24">
+    <section className="relative w-full bg-bg px-6 py-24 md:px-12 lg:px-16 xl:px-24" aria-label="Відгуки">
       <div className="mx-auto max-w-7xl">
         <AnimatedSection className="mb-16 text-center">
           <h2 className="mb-4 text-3xl font-extrabold tracking-tight text-dark md:text-4xl">ВІДГУКИ</h2>
@@ -47,7 +47,7 @@ export function Reviews() {
                 {/* Stars */}
                 <div className="mb-6 flex gap-1">
                   {[...Array(5)].map((_, j) => (
-                    <Star key={j} className="h-4 w-4 fill-primary text-primary" />
+                    <Star key={j} className="h-4 w-4 fill-primary text-primary" aria-hidden="true" />
                   ))}
                 </div>
 

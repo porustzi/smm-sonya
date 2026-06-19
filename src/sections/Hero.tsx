@@ -30,7 +30,7 @@ const tgUser = '@svrnss';
 
 export function Hero({ onOpenBooking }: HeroProps) {
   return (
-    <section className="relative min-h-screen w-full overflow-hidden bg-bg px-6 py-20 md:px-10 lg:px-16 xl:px-24">
+    <section className="relative min-h-screen w-full overflow-hidden bg-bg px-6 py-20 md:px-10 lg:px-16 xl:px-24" aria-label="Головна">
       <FloatingBlob className="top-20 -left-20" size={400} color="rgba(255, 180, 106, 0.12)" delay={0} />
       <FloatingBlob className="top-60 right-0" size={350} color="rgba(255, 180, 106, 0.10)" delay={2} duration={10} />
       <FloatingBlob className="bottom-20 left-1/3" size={300} color="rgba(255, 156, 66, 0.08)" delay={1} duration={9} />
@@ -76,9 +76,10 @@ export function Hero({ onOpenBooking }: HeroProps) {
               whileTap={{ scale: 0.98 }}
               onClick={onOpenBooking}
               className="group inline-flex items-center gap-3 rounded-full bg-dark px-8 py-4 text-sm font-semibold text-white shadow-lg shadow-dark/10 transition-colors hover:bg-dark/90"
+              aria-label="Обговорити проєкт"
             >
               Обговорити проєкт
-              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
             </motion.button>
             <motion.a
               href={`https://t.me/${tgUser.replace('@', '')}`}
@@ -87,8 +88,9 @@ export function Hero({ onOpenBooking }: HeroProps) {
               whileHover={{ scale: 1.03, y: -2 }}
               whileTap={{ scale: 0.98 }}
               className="inline-flex items-center gap-2 rounded-full border border-secondary/20 bg-white px-8 py-4 text-sm font-semibold text-dark transition-colors hover:bg-secondary/5"
+              aria-label="Telegram @svrnss"
             >
-              <MessageCircle className="h-4 w-4" />
+              <MessageCircle className="h-4 w-4" aria-hidden="true" />
               {tgUser}
             </motion.a>
           </motion.div>
@@ -135,7 +137,7 @@ export function Hero({ onOpenBooking }: HeroProps) {
                 <h3 className="text-lg font-bold text-dark">Панель послуг</h3>
                 <p className="text-sm text-secondary">SMM-студія</p>
               </div>
-              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10">
+              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10" aria-hidden="true">
                 <TrendingUp className="h-5 w-5 text-primary" />
               </div>
             </div>
@@ -150,7 +152,7 @@ export function Hero({ onOpenBooking }: HeroProps) {
                   whileHover={{ x: 4 }}
                   className="flex cursor-default items-center gap-4 rounded-2xl bg-bg p-4 transition-colors hover:bg-primary/5"
                 >
-                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10" aria-hidden="true">
                     <service.icon className="h-5 w-5 text-primary" />
                   </div>
                   <span className="font-semibold text-dark">{service.label}</span>

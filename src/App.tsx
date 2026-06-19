@@ -20,7 +20,7 @@ function App() {
   }
 
   return (
-    <main className="min-h-screen w-full bg-bg font-manrope">
+    <main className="min-h-screen w-full bg-bg font-manrope" role="main" aria-label="SMM Specialist сторінка">
       <Hero onOpenBooking={() => openPanel('project')} />
       <Services />
       <Cases />

@@ -11,7 +11,7 @@ const steps = [
 
 export function Process() {
   return (
-    <section className="relative w-full bg-bg px-6 py-24 md:px-12 lg:px-16 xl:px-24">
+    <section className="relative w-full bg-bg px-6 py-24 md:px-12 lg:px-16 xl:px-24" aria-label="Процес роботи">
       <div className="mx-auto max-w-7xl">
         <AnimatedSection className="mb-16 text-center">
           <h2 className="mb-4 text-3xl font-extrabold tracking-tight text-dark md:text-4xl">
@@ -40,7 +40,7 @@ export function Process() {
                       className="inline-block rounded-[30px] bg-card p-8 shadow-[0_4px_24px_rgba(0,0,0,0.04)]"
                     >
                       <div className={`mb-4 flex items-center gap-4 ${i % 2 === 0 ? 'md:flex-row-reverse' : ''}`}>
-                        <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10">
+                        <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10" aria-hidden="true">
                           <step.icon className="h-5 w-5 text-primary" />
                         </div>
                         <div>

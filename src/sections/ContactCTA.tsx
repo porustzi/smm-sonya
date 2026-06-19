@@ -11,7 +11,7 @@ const tgUser = '@svrnss';
 
 export function ContactCTA({ onOpenBooking }: ContactCTAProps) {
   return (
-    <section className="relative w-full overflow-hidden bg-bg px-6 py-24 md:px-12 lg:px-16 xl:px-24">
+    <section className="relative w-full overflow-hidden bg-bg px-6 py-24 md:px-12 lg:px-16 xl:px-24" aria-label="Контакти">
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-primary/10" />
       <FloatingBlob className="top-10 left-1/4" size={400} color="rgba(255, 180, 106, 0.12)" delay={0} duration={10} />
       <FloatingBlob className="bottom-10 right-1/4" size={350} color="rgba(255, 156, 66, 0.10)" delay={2} duration={12} />
@@ -38,9 +38,10 @@ export function ContactCTA({ onOpenBooking }: ContactCTAProps) {
               whileTap={{ scale: 0.98 }}
               onClick={onOpenBooking}
               className="group inline-flex items-center gap-3 rounded-full bg-dark px-8 py-4 text-sm font-semibold text-white shadow-lg shadow-dark/10 transition-colors hover:bg-dark/90"
+              aria-label="Записатися на консультацію"
             >
               Записатися на консультацію
-              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
             </motion.button>
             <motion.a
               href={`https://t.me/${tgUser.replace('@', '')}`}
@@ -49,8 +50,9 @@ export function ContactCTA({ onOpenBooking }: ContactCTAProps) {
               whileHover={{ scale: 1.03, y: -2 }}
               whileTap={{ scale: 0.98 }}
               className="inline-flex items-center gap-2 rounded-full border border-secondary/20 bg-white px-8 py-4 text-sm font-semibold text-dark transition-colors hover:bg-secondary/5"
+              aria-label="Telegram @svrnss"
             >
-              <MessageCircle className="h-4 w-4" />
+              <MessageCircle className="h-4 w-4" aria-hidden="true" />
               {tgUser}
             </motion.a>
           </div>

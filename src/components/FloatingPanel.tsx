@@ -59,30 +59,34 @@ export function FloatingPanel({ isOpen, onClose, purpose }: FloatingPanelProps) 
   return (
     <AnimatePresence>
       {isOpen && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.2 }}
-          className="fixed inset-0 z-50 flex items-center justify-center p-4"
-          onClick={handleOverlay}
-        >
-          {/* Overlay */}
-          <div className="absolute inset-0 bg-black/40 backdrop-blur-sm" />
-
-          {/* Panel */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.92, y: 16 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.92, y: 16 }}
-            transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
-            className="relative w-full max-w-md overflow-hidden rounded-[28px] bg-white shadow-2xl"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="fixed inset-0 z-50 flex items-center justify-center p-4"
+            onClick={handleOverlay}
+            role="dialog"
+            aria-modal="true"
+            aria-label={c.title}
           >
+            {/* Overlay */}
+            <div className="absolute inset-0 bg-black/40 backdrop-blur-sm" />
+
+            {/* Panel */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.92, y: 16 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.92, y: 16 }}
+              transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
+              className="relative w-full max-w-md overflow-hidden rounded-[28px] bg-white shadow-2xl"
+            >
             <button
               onClick={onClose}
               className="absolute right-4 top-4 z-10 flex h-8 w-8 items-center justify-center rounded-full bg-bg transition-colors hover:bg-secondary/10"
+              aria-label="Закрити"
             >
-              <X className="h-4 w-4 text-dark" />
+              <X className="h-4 w-4 text-dark" aria-hidden="true" />
             </button>
 
             <div className="px-5 pt-8 pb-6 sm:px-7">
@@ -106,7 +110,7 @@ export function FloatingPanel({ isOpen, onClose, purpose }: FloatingPanelProps) 
                   transition={{ type: 'spring', stiffness: 300, damping: 20 }}
                   className="mx-auto mb-3 flex h-14 w-14 items-center justify-center rounded-full bg-green-50"
                 >
-                  <CheckCircle className="h-7 w-7 text-green-500" />
+                  <CheckCircle className="h-7 w-7 text-green-500" aria-hidden="true" />
                 </motion.div>
                 <p className="font-bold text-dark">Заявка відправлена!</p>
                 <p className="text-sm text-secondary">Я скоро зв'яжуся</p>
@@ -115,7 +119,7 @@ export function FloatingPanel({ isOpen, onClose, purpose }: FloatingPanelProps) 
               <form onSubmit={handleSubmit} className="px-5 pb-8 sm:px-7">
                 {status === 'error' && (
                   <div className="mb-4 flex items-center gap-2 rounded-xl bg-red-50 px-4 py-3">
-                    <AlertCircle className="h-4 w-4 flex-shrink-0 text-red-500" />
+                    <AlertCircle className="h-4 w-4 flex-shrink-0 text-red-500" aria-hidden="true" />
                     <span className="text-xs text-red-600">{errorText}</span>
                     <button type="button" onClick={() => setStatus('idle')} className="ml-auto text-xs font-semibold text-red-700 underline">OK</button>
                   </div>
@@ -148,7 +152,7 @@ export function FloatingPanel({ isOpen, onClose, purpose }: FloatingPanelProps) 
                         <option key={s} value={s}>{s}</option>
                       ))}
                     </select>
-                    <ChevronDown className="pointer-events-none absolute right-4 top-1/2 h-4 w-4 -translate-y-1/2 text-secondary" />
+                    <ChevronDown className="pointer-events-none absolute right-4 top-1/2 h-4 w-4 -translate-y-1/2 text-secondary" aria-hidden="true" />
                   </div>
                   <textarea
                     value={message}
@@ -167,9 +171,9 @@ export function FloatingPanel({ isOpen, onClose, purpose }: FloatingPanelProps) 
                   className="mt-5 flex w-full items-center justify-center gap-2 rounded-full bg-dark px-8 py-3.5 text-sm font-semibold text-white shadow-lg shadow-dark/10 transition-all hover:bg-dark/90 disabled:cursor-not-allowed disabled:opacity-60"
                 >
                   {status === 'sending' ? (
-                    <Loader2 className="h-4 w-4 animate-spin" />
+                    <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" />
                   ) : (
-                    <Send className="h-4 w-4" />
+                    <Send className="h-4 w-4" aria-hidden="true" />
                   )}
                   {status === 'sending' ? 'Відправляємо...' : 'Надіслати'}
                 </motion.button>

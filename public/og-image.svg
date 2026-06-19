@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f8f6f3"/>
+      <stop offset="100%" stop-color="#fff8f0"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ff9a3c"/>
+      <stop offset="100%" stop-color="#ffb46a"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <!-- Decorative blobs -->
+  <circle cx="150" cy="100" r="200" fill="#ff9a3c" opacity="0.06"/>
+  <circle cx="1050" cy="530" r="250" fill="#ffb46a" opacity="0.05"/>
+  <circle cx="600" cy="315" r="100" fill="#ff9a3c" opacity="0.04"/>
+  <!-- Content -->
+  <text x="100" y="260" font-family="system-ui, -apple-system, sans-serif" font-size="80" font-weight="900" fill="#1a1a2e" letter-spacing="-2">SMM</text>
+  <text x="100" y="340" font-family="system-ui, -apple-system, sans-serif" font-size="68" font-weight="900" fill="#1a1a2e" letter-spacing="-1">SPECIALIST</text>
+  <rect x="100" y="380" width="80" height="5" rx="2.5" fill="url(#accent)"/>
+  <text x="100" y="440" font-family="system-ui, -apple-system, sans-serif" font-size="24" fill="#666" letter-spacing="0.5">Просування в Instagram · Контент-стратегія · Reels</text>
+  <!-- CTA pill -->
+  <rect x="100" y="490" width="260" height="60" rx="30" fill="#1a1a2e"/>
+  <text x="230" y="528" font-family="system-ui, -apple-system, sans-serif" font-size="20" font-weight="700" fill="#fff" text-anchor="middle">Обговорити проєкт →</text>
+  <!-- Mockup circle -->
+  <circle cx="920" cy="315" r="140" fill="#fff" stroke="#eee" stroke-width="2"/>
+  <circle cx="920" cy="315" r="40" fill="url(#accent)" opacity="0.8"/>
+  <text x="920" y="325" font-family="system-ui, -apple-system, sans-serif" font-size="28" fill="#fff" text-anchor="middle" font-weight="700">S</text>
+  <text x="920" y="490" font-family="system-ui, -apple-system, sans-serif" font-size="16" fill="#888" text-anchor="middle" letter-spacing="2">@svrnss</text>
+</svg>

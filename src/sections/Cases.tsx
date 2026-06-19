@@ -51,17 +51,17 @@ function PhoneMockup() {
             </div>
             <div className={`mb-3 aspect-square w-full rounded-2xl ${topCase.image} flex items-center justify-center`}>
               <div className="text-center">
-                <TrendingUp className="mx-auto mb-3 h-14 w-14 text-primary" />
+                <TrendingUp className="mx-auto mb-3 h-14 w-14 text-primary" aria-hidden="true" />
                 <span className="text-3xl font-extrabold text-dark">{topCase.metric}</span>
                 <div className="text-sm text-secondary">{topCase.metricLabel}</div>
               </div>
             </div>
             <div className="flex items-center justify-between px-1">
               <div className="flex gap-4">
-                <Heart className="h-6 w-6 text-dark" />
-                <MessageCircle className="h-6 w-6 text-dark" />
+                <Heart className="h-6 w-6 text-dark" aria-hidden="true" />
+                <MessageCircle className="h-6 w-6 text-dark" aria-hidden="true" />
               </div>
-              <Bookmark className="h-6 w-6 text-dark" />
+              <Bookmark className="h-6 w-6 text-dark" aria-hidden="true" />
             </div>
             <div className="mt-2 px-1 text-xs font-semibold text-dark">{topCase.likes} likes</div>
             <div className="px-1 text-[11px] text-secondary">View all {topCase.comments} comments</div>
@@ -74,7 +74,7 @@ function PhoneMockup() {
 
 export function Cases() {
   return (
-    <section className="relative w-full overflow-hidden bg-bg px-6 py-28 md:px-12 lg:px-20 xl:px-28">
+    <section className="relative w-full overflow-hidden bg-bg px-6 py-28 md:px-12 lg:px-20 xl:px-28" aria-label="Кейси">
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute top-1/4 -left-40 h-[500px] w-[500px] rounded-full bg-primary/5 blur-3xl" />
         <div className="absolute bottom-1/4 -right-40 h-[500px] w-[500px] rounded-full bg-primary/5 blur-3xl" />
@@ -83,7 +83,7 @@ export function Cases() {
       <div className="relative mx-auto max-w-7xl">
         <AnimatedSection className="mb-16 text-center">
           <div className="mb-6 inline-flex items-center gap-2.5 rounded-full bg-primary/10 px-6 py-2.5">
-            <Star className="h-4 w-4 fill-primary text-primary" />
+            <Star className="h-4 w-4 fill-primary text-primary" aria-hidden="true" />
             <span className="text-sm font-bold uppercase tracking-[0.15em] text-primary">Топ-кейс</span>
           </div>
           <h2 className="mb-4 text-4xl font-extrabold tracking-tight text-dark md:text-5xl lg:text-6xl">
@@ -124,7 +124,7 @@ export function Cases() {
                     className="rounded-2xl bg-white p-6 text-center shadow-lg shadow-dark/5"
                   >
                     <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10">
-                      <r.icon className="h-6 w-6 text-primary" />
+                      <r.icon className="h-6 w-6 text-primary" aria-hidden="true" />
                     </div>
                     <div className="text-xl font-extrabold text-dark md:text-2xl">{r.value}</div>
                     <div className="text-sm text-secondary">{r.label}</div>
@@ -146,7 +146,7 @@ export function Cases() {
                     whileHover={{ scale: 1.04, y: -2 }}
                     className="inline-flex items-center gap-2 rounded-full border border-secondary/20 bg-white px-5 py-2.5 text-sm font-medium text-dark shadow-sm transition-all hover:border-primary/30 hover:text-primary"
                   >
-                    <link.icon className="h-4 w-4" />
+                    <link.icon className="h-4 w-4" aria-hidden="true" />
                     {link.label}
                   </motion.a>
                 ))}

@@ -13,7 +13,7 @@ const services = [
 
 export function Services() {
   return (
-    <section className="relative w-full bg-bg px-6 py-24 md:px-12 lg:px-16 xl:px-24">
+    <section className="relative w-full bg-bg px-6 py-24 md:px-12 lg:px-16 xl:px-24" aria-label="Послуги">
       <div className="mx-auto max-w-7xl">
         <AnimatedSection className="mb-16 text-center">
           <h2 className="mb-4 text-3xl font-extrabold tracking-tight text-dark md:text-4xl">ПОСЛУГИ</h2>
@@ -29,7 +29,7 @@ export function Services() {
                 whileHover={{ y: -8, transition: { duration: 0.3 } }}
                 className="group h-full rounded-[30px] bg-card p-8 shadow-[0_4px_24px_rgba(0,0,0,0.04)] transition-shadow hover:shadow-[0_12px_40px_rgba(0,0,0,0.08)]"
               >
-                <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10 transition-colors group-hover:bg-primary/20">
+                <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10 transition-colors group-hover:bg-primary/20" aria-hidden="true">
                   <service.icon className="h-6 w-6 text-primary" />
                 </div>
                 <h3 className="mb-3 text-lg font-bold text-dark">{service.title}</h3>

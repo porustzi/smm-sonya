@@ -16,8 +16,9 @@ export function Footer() {
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2 text-sm font-medium text-secondary transition-colors hover:text-dark"
+            aria-label="Telegram @svrnss"
           >
-            <MessageCircle className="h-4 w-4" />
+            <MessageCircle className="h-4 w-4" aria-hidden="true" />
             {tgUser}
           </a>
         </div>
