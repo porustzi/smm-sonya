@@ -22,7 +22,11 @@ const services = [
   { icon: User, label: 'Особистий бренд' },
 ];
 
-export function Hero() {
+interface HeroProps {
+  onOpenBooking: () => void;
+}
+
+export function Hero({ onOpenBooking }: HeroProps) {
   return (
     <section className="relative min-h-screen w-full overflow-hidden bg-bg px-6 py-20 lg:px-16 xl:px-24">
       {/* Floating blobs */}
@@ -70,6 +74,7 @@ export function Hero() {
             <motion.button
               whileHover={{ scale: 1.03, y: -2 }}
               whileTap={{ scale: 0.98 }}
+              onClick={onOpenBooking}
               className="group inline-flex items-center gap-3 rounded-full bg-dark px-8 py-4 text-sm font-semibold text-white shadow-lg shadow-dark/10 transition-colors hover:bg-dark/90"
             >
               Обговорити проєкт

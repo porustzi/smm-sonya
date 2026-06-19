@@ -3,7 +3,11 @@ import { ArrowRight, MessageCircle } from 'lucide-react';
 import { AnimatedSection } from '../components/AnimatedSection';
 import { FloatingBlob } from '../components/FloatingBlob';
 
-export function ContactCTA() {
+interface ContactCTAProps {
+  onOpenBooking: () => void;
+}
+
+export function ContactCTA({ onOpenBooking }: ContactCTAProps) {
   return (
     <section className="relative w-full overflow-hidden bg-bg px-6 py-24 lg:px-16 xl:px-24">
       {/* Background gradient with blur */}
@@ -31,6 +35,7 @@ export function ContactCTA() {
             <motion.button
               whileHover={{ scale: 1.03, y: -2 }}
               whileTap={{ scale: 0.98 }}
+              onClick={onOpenBooking}
               className="group inline-flex items-center gap-3 rounded-full bg-dark px-8 py-4 text-sm font-semibold text-white shadow-lg shadow-dark/10 transition-colors hover:bg-dark/90"
             >
               Записатися на консультацію
