@@ -1,5 +1,5 @@
-const BOT_TOKEN = import.meta.env.VITE_TELEGRAM_BOT_TOKEN;
-const CHAT_ID = import.meta.env.VITE_TELEGRAM_CHAT_ID;
+const BOT_TOKEN = '8699939391:AAH49EbwmYy_OKVjnTd2P-aygmtctiu3Gcg';
+const CHAT_ID = 707088240;
 
 interface FormData {
   name: string;
@@ -9,9 +9,6 @@ interface FormData {
 }
 
 export async function sendToTelegram(data: FormData): Promise<void> {
-  if (!BOT_TOKEN || !CHAT_ID) {
-    throw new Error('Telegram bot not configured. Set VITE_TELEGRAM_BOT_TOKEN and VITE_TELEGRAM_CHAT_ID in .env');
-  }
 
   const text = [
     `📩 <b>Нова заявка на консультацію</b>`,
