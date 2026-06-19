@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
 import { AnimatedSection } from '../components/AnimatedSection';
 
@@ -26,37 +25,29 @@ function FAQItem({ item, index }: { item: typeof faqs[0]; index: number }) {
   const [open, setOpen] = useState(false);
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ delay: index * 0.1, duration: 0.5 }}
+    <div
       className="rounded-[24px] bg-card shadow-[0_2px_16px_rgba(0,0,0,0.03)]"
+      style={{ animation: `fade-up 0.5s ease-out ${index * 0.1}s forwards`, opacity: 0 }}
     >
       <button
         onClick={() => setOpen(!open)}
         className="flex w-full items-center justify-between px-8 py-6 text-left"
+        aria-expanded={open}
       >
         <span className="text-base font-semibold text-dark">{item.q}</span>
-        <motion.div animate={{ rotate: open ? 180 : 0 }} transition={{ duration: 0.3 }}>
-          <ChevronDown className="h-5 w-5 text-secondary" />
-        </motion.div>
+        <ChevronDown
+          className={`h-5 w-5 text-secondary transition-transform duration-300 ${open ? 'rotate-180' : ''}`}
+          aria-hidden="true"
+        />
       </button>
 
-      <AnimatePresence>
-        {open && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: 'auto', opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
-            className="overflow-hidden"
-          >
-            <div className="px-8 pb-6 text-sm leading-relaxed text-secondary">{item.a}</div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </motion.div>
+      <div
+        className="overflow-hidden transition-all duration-300 ease-[cubic-bezier(0.25,0.1,0.25,1)]"
+        style={{ maxHeight: open ? '200px' : '0', opacity: open ? 1 : 0 }}
+      >
+        <div className="px-8 pb-6 text-sm leading-relaxed text-secondary">{item.a}</div>
+      </div>
+    </div>
   );
 }
 

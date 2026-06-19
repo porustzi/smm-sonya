@@ -1,5 +1,3 @@
-import { motion } from 'framer-motion';
-
 interface FloatingBlobProps {
   className?: string;
   size?: number;
@@ -16,24 +14,15 @@ export function FloatingBlob({
   duration = 8,
 }: FloatingBlobProps) {
   return (
-    <motion.div
-      className={`absolute rounded-full pointer-events-none blur-3xl ${className}`}
+    <div
+      className={`absolute rounded-full pointer-events-none blur-3xl animate-float ${className}`}
       style={{
         width: size,
         height: size,
         background: color,
-      }}
-      animate={{
-        y: [0, -30, 0],
-        x: [0, 15, 0],
-        scale: [1, 1.05, 1],
-      }}
-      transition={{
-        duration,
-        repeat: Infinity,
-        ease: 'easeInOut',
-        delay,
-      }}
+        '--float-duration': `${duration}s`,
+        '--float-delay': `${delay}s`,
+      } as React.CSSProperties}
     />
   );
 }

@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion';
 import { Star } from 'lucide-react';
 import { AnimatedSection } from '../components/AnimatedSection';
 
@@ -40,11 +39,7 @@ export function Reviews() {
         <div className="grid gap-8 md:grid-cols-3">
           {reviews.map((review, i) => (
             <AnimatedSection key={review.name} delay={i * 0.12}>
-              <motion.div
-                whileHover={{ y: -6, transition: { duration: 0.3 } }}
-                className="h-full rounded-[30px] bg-card p-8 shadow-[0_4px_24px_rgba(0,0,0,0.04)] transition-shadow hover:shadow-[0_12px_40px_rgba(0,0,0,0.08)]"
-              >
-                {/* Stars */}
+              <div className="h-full rounded-[30px] bg-card p-8 shadow-[0_4px_24px_rgba(0,0,0,0.04)] transition-all hover:-translate-y-1.5 hover:shadow-[0_12px_40px_rgba(0,0,0,0.08)]">
                 <div className="mb-6 flex gap-1">
                   {[...Array(5)].map((_, j) => (
                     <Star key={j} className="h-4 w-4 fill-primary text-primary" aria-hidden="true" />
@@ -62,7 +57,7 @@ export function Reviews() {
                     <div className="text-xs text-secondary">{review.niche}</div>
                   </div>
                 </div>
-              </motion.div>
+              </div>
             </AnimatedSection>
           ))}
         </div>

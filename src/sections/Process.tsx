@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion';
 import { Search, Lightbulb, PenTool, Rocket } from 'lucide-react';
 import { AnimatedSection } from '../components/AnimatedSection';
 
@@ -23,22 +22,16 @@ export function Process() {
         </AnimatedSection>
 
         <div className="relative">
-          {/* Timeline line */}
           <div className="absolute left-8 top-0 bottom-0 hidden w-0.5 bg-primary/20 md:left-1/2 md:block md:-translate-x-px" />
 
           <div className="space-y-12 md:space-y-0">
             {steps.map((step, i) => (
               <AnimatedSection key={step.num} delay={i * 0.15}>
                 <div className={`relative flex items-start gap-8 md:items-center ${i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
-                  {/* Timeline dot */}
                   <div className="absolute left-8 top-0 hidden h-4 w-4 -translate-x-1.5 rounded-full border-4 border-bg bg-primary md:left-1/2 md:block md:-translate-x-2" />
 
-                  {/* Card */}
                   <div className={`flex-1 ${i % 2 === 0 ? 'md:pr-16 md:text-right' : 'md:pl-16 md:text-left'}`}>
-                    <motion.div
-                      whileHover={{ y: -4 }}
-                      className="inline-block rounded-[30px] bg-card p-8 shadow-[0_4px_24px_rgba(0,0,0,0.04)]"
-                    >
+                    <div className="inline-block rounded-[30px] bg-card p-8 shadow-[0_4px_24px_rgba(0,0,0,0.04)] transition-all hover:-translate-y-1">
                       <div className={`mb-4 flex items-center gap-4 ${i % 2 === 0 ? 'md:flex-row-reverse' : ''}`}>
                         <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10" aria-hidden="true">
                           <step.icon className="h-5 w-5 text-primary" />
@@ -49,10 +42,9 @@ export function Process() {
                         </div>
                       </div>
                       <p className="text-sm leading-relaxed text-secondary">{step.desc}</p>
-                    </motion.div>
+                    </div>
                   </div>
 
-                  {/* Spacer for other side */}
                   <div className="hidden flex-1 md:block" />
                 </div>
               </AnimatedSection>

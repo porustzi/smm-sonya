@@ -8,3 +8,16 @@ createRoot(document.getElementById('root')!).render(
     <App />
   </StrictMode>
 );
+
+if (import.meta.env.PROD) {
+  import('web-vitals').then(({ onLCP, onCLS, onINP, onFCP, onTTFB }) => {
+    const log = (m: { name: string; value: number; rating: string }) => {
+      console.log(`[Web Vitals] ${m.name}: ${m.value} (${m.rating})`);
+    };
+    onLCP(log);
+    onCLS(log);
+    onINP(log);
+    onFCP(log);
+    onTTFB(log);
+  });
+}

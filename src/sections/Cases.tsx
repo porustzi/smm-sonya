@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion';
 import { Heart, MessageCircle, Bookmark, TrendingUp, Target, Users, BarChart3, Star, Instagram, Globe, Phone } from 'lucide-react';
 import { AnimatedSection } from '../components/AnimatedSection';
 
@@ -25,11 +24,7 @@ const topCase = {
 
 function PhoneMockup() {
   return (
-    <motion.div
-      whileHover={{ scale: 1.02, y: -6 }}
-      transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
-      className="relative mx-auto w-full max-w-[380px] lg:max-w-[420px]"
-    >
+    <div className="relative mx-auto w-full max-w-[380px] transition-all hover:scale-[1.02] hover:-translate-y-1.5 lg:max-w-[420px]">
       <div className="relative overflow-hidden rounded-[48px] bg-dark p-3 shadow-2xl shadow-dark/20">
         <div className="absolute left-1/2 top-2 z-20 h-6 w-24 -translate-x-1/2 rounded-full bg-dark" />
         <div className="relative overflow-hidden rounded-[36px] bg-white">
@@ -68,7 +63,7 @@ function PhoneMockup() {
           </div>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 }
 
@@ -115,40 +110,33 @@ export function Cases() {
 
               <div className="mb-12 grid grid-cols-1 gap-4 sm:grid-cols-3 sm:gap-5">
                 {topCase.results.map((r, i) => (
-                  <motion.div
+                  <div
                     key={r.label}
-                    initial={{ opacity: 0, y: 24 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: 0.3 + i * 0.12 }}
                     className="rounded-2xl bg-white p-6 text-center shadow-lg shadow-dark/5"
+                    style={{ animation: `fade-up 0.5s ease-out ${0.3 + i * 0.12}s forwards`, opacity: 0 }}
                   >
-                    <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10">
-                      <r.icon className="h-6 w-6 text-primary" aria-hidden="true" />
+                    <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10" aria-hidden="true">
+                      <r.icon className="h-6 w-6 text-primary" />
                     </div>
                     <div className="text-xl font-extrabold text-dark md:text-2xl">{r.value}</div>
                     <div className="text-sm text-secondary">{r.label}</div>
-                  </motion.div>
+                  </div>
                 ))}
               </div>
 
               <div className="flex flex-wrap gap-3">
                 {topCase.links.map((link, i) => (
-                  <motion.a
+                  <a
                     key={link.label}
                     href={link.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    initial={{ opacity: 0, y: 12 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.4, delay: 0.6 + i * 0.08 }}
-                    whileHover={{ scale: 1.04, y: -2 }}
-                    className="inline-flex items-center gap-2 rounded-full border border-secondary/20 bg-white px-5 py-2.5 text-sm font-medium text-dark shadow-sm transition-all hover:border-primary/30 hover:text-primary"
+                    className="inline-flex items-center gap-2 rounded-full border border-secondary/20 bg-white px-5 py-2.5 text-sm font-medium text-dark shadow-sm transition-all hover:scale-[1.04] hover:-translate-y-0.5 hover:border-primary/30 hover:text-primary"
+                    style={{ animation: `fade-up 0.4s ease-out ${0.6 + i * 0.08}s forwards`, opacity: 0 }}
                   >
                     <link.icon className="h-4 w-4" aria-hidden="true" />
                     {link.label}
-                  </motion.a>
+                  </a>
                 ))}
               </div>
             </div>

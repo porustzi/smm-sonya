@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion';
 import { ArrowRight, MessageCircle } from 'lucide-react';
 import { AnimatedSection } from '../components/AnimatedSection';
 import { FloatingBlob } from '../components/FloatingBlob';
@@ -33,28 +32,24 @@ export function ContactCTA({ onOpenBooking }: ContactCTAProps) {
 
         <AnimatedSection delay={0.2}>
           <div className="flex flex-wrap justify-center gap-4">
-            <motion.button
-              whileHover={{ scale: 1.03, y: -2 }}
-              whileTap={{ scale: 0.98 }}
+            <button
               onClick={onOpenBooking}
-              className="group inline-flex items-center gap-3 rounded-full bg-dark px-8 py-4 text-sm font-semibold text-white shadow-lg shadow-dark/10 transition-colors hover:bg-dark/90"
+              className="group inline-flex items-center gap-3 rounded-full bg-dark px-8 py-4 text-sm font-semibold text-white shadow-lg shadow-dark/10 transition-all hover:scale-[1.03] hover:-translate-y-0.5 hover:bg-dark/90 active:scale-[0.98]"
               aria-label="Записатися на консультацію"
             >
               Записатися на консультацію
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
-            </motion.button>
-            <motion.a
+            </button>
+            <a
               href={`https://t.me/${tgUser.replace('@', '')}`}
               target="_blank"
               rel="noopener noreferrer"
-              whileHover={{ scale: 1.03, y: -2 }}
-              whileTap={{ scale: 0.98 }}
-              className="inline-flex items-center gap-2 rounded-full border border-secondary/20 bg-white px-8 py-4 text-sm font-semibold text-dark transition-colors hover:bg-secondary/5"
+              className="inline-flex items-center gap-2 rounded-full border border-secondary/20 bg-white px-8 py-4 text-sm font-semibold text-dark transition-all hover:scale-[1.03] hover:-translate-y-0.5 hover:bg-secondary/5 active:scale-[0.98]"
               aria-label="Telegram @svrnss"
             >
               <MessageCircle className="h-4 w-4" aria-hidden="true" />
               {tgUser}
-            </motion.a>
+            </a>
           </div>
         </AnimatedSection>
       </div>
