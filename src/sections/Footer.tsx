@@ -23,8 +23,22 @@ export function Footer() {
         </div>
       </div>
 
-      <div className="mt-8 text-center text-2xl text-secondary/30 select-none">
-        (^-^)/
+      <div className="mt-8 flex flex-col items-center gap-4">
+        <div className="relative w-full max-w-xs overflow-hidden rounded-full bg-white px-5 py-3 shadow-lg md:py-2.5">
+          <div className="pointer-events-none absolute inset-0">
+            <div className="absolute -top-4 -right-3 h-16 w-16 rounded-full bg-rose-300/50 blur-xl" />
+            <div className="absolute -bottom-4 -left-3 h-12 w-12 rounded-full bg-rose-400/40 blur-lg" />
+            <div className="absolute left-1/3 top-1/4 h-8 w-8 rounded-full bg-rose-200/30 blur-md" />
+          </div>
+          <a
+            href="https://krvtsv.netlify.app"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="relative block whitespace-nowrap text-center text-[11px] font-bold uppercase tracking-widest text-rose-600 transition-colors hover:text-rose-500 md:text-[10px]"
+          >
+            Сайт зроблений KRVTSV CORP
+          </a>
+        </div>
       </div>
     </footer>
   );
