@@ -12,19 +12,25 @@ import { FloatingPanel } from './components/FloatingPanel';
 
 function App() {
   const [isPanelOpen, setPanelOpen] = useState(false);
+  const [panelPurpose, setPanelPurpose] = useState<'project' | 'consultation'>('project');
+
+  function openPanel(purpose: 'project' | 'consultation') {
+    setPanelPurpose(purpose);
+    setPanelOpen(true);
+  }
 
   return (
     <main className="min-h-screen w-full bg-bg font-manrope">
-      <Hero onOpenBooking={() => setPanelOpen(true)} />
+      <Hero onOpenBooking={() => openPanel('project')} />
       <Services />
       <Cases />
       <Results />
       <Process />
       <Reviews />
       <FAQ />
-      <ContactCTA onOpenBooking={() => setPanelOpen(true)} />
+      <ContactCTA onOpenBooking={() => openPanel('consultation')} />
       <Footer />
-      <FloatingPanel isOpen={isPanelOpen} onClose={() => setPanelOpen(false)} />
+      <FloatingPanel isOpen={isPanelOpen} onClose={() => setPanelOpen(false)} purpose={panelPurpose} />
     </main>
   );
 }

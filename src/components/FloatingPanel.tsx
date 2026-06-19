@@ -6,6 +6,7 @@ import { sendToTelegram } from '../lib/telegram';
 interface FloatingPanelProps {
   isOpen: boolean;
   onClose: () => void;
+  purpose: 'project' | 'consultation';
 }
 
 const services = [
@@ -17,7 +18,13 @@ const services = [
   'Консультація',
 ];
 
-export function FloatingPanel({ isOpen, onClose }: FloatingPanelProps) {
+const config = {
+  project: { title: 'Обговорити проєкт', badge: 'Проєкт', placeholder: 'Опишіть ваш проєкт або задачу' },
+  consultation: { title: 'Записатися на консультацію', badge: 'Запис', placeholder: 'Розкажіть про свій бізнес' },
+};
+
+export function FloatingPanel({ isOpen, onClose, purpose }: FloatingPanelProps) {
+  const c = config[purpose];
   const [name, setName] = useState('');
   const [contact, setContact] = useState('');
   const [service, setService] = useState('');
@@ -81,10 +88,10 @@ export function FloatingPanel({ isOpen, onClose }: FloatingPanelProps) {
             <div className="px-5 pt-8 pb-6 sm:px-7">
               <div className="mb-2 inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-1.5">
                 <span className="h-1.5 w-1.5 rounded-full bg-primary" />
-                <span className="text-[10px] font-bold uppercase tracking-widest text-primary">Запис</span>
+                <span className="text-[10px] font-bold uppercase tracking-widest text-primary">{c.badge}</span>
               </div>
               <h3 className="text-xl font-extrabold tracking-tight text-dark">
-                Обговорити проєкт
+                {c.title}
               </h3>
               <p className="mt-1.5 text-sm text-secondary">
                 Залиште контакти — я зв'яжуся з вами
@@ -146,7 +153,7 @@ export function FloatingPanel({ isOpen, onClose }: FloatingPanelProps) {
                   <textarea
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
-                    placeholder="Повідомлення (необов'язково)"
+                    placeholder={c.placeholder}
                     rows={3}
                     className="w-full resize-none rounded-2xl bg-bg px-4 py-3.5 text-sm text-dark placeholder-secondary/50 outline-none ring-1 ring-transparent transition-all focus:ring-primary/30"
                   />
