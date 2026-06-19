@@ -11,7 +11,7 @@ const tgUser = '@svrnss';
 
 export function ContactCTA({ onOpenBooking }: ContactCTAProps) {
   return (
-    <section className="relative w-full overflow-hidden bg-bg px-6 py-24 lg:px-16 xl:px-24">
+    <section className="relative w-full overflow-hidden bg-bg px-6 py-24 md:px-12 lg:px-16 xl:px-24">
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-primary/10" />
       <FloatingBlob className="top-10 left-1/4" size={400} color="rgba(255, 180, 106, 0.12)" delay={0} duration={10} />
       <FloatingBlob className="bottom-10 right-1/4" size={350} color="rgba(255, 156, 66, 0.10)" delay={2} duration={12} />

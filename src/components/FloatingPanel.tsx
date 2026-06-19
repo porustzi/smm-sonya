@@ -65,7 +65,7 @@ export function FloatingPanel({ isOpen, onClose }: FloatingPanelProps) {
               <X className="h-4 w-4 text-dark" />
             </button>
 
-            <div className="px-7 pt-8 pb-6">
+            <div className="px-5 pt-8 pb-6 sm:px-7">
               <div className="mb-2 inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-1.5">
                 <span className="h-1.5 w-1.5 rounded-full bg-primary" />
                 <span className="text-[10px] font-bold uppercase tracking-widest text-primary">Запис</span>
@@ -79,7 +79,7 @@ export function FloatingPanel({ isOpen, onClose }: FloatingPanelProps) {
             </div>
 
             {status === 'success' ? (
-              <div className="px-7 pb-8 text-center">
+              <div className="px-5 pb-8 text-center sm:px-7">
                 <motion.div
                   initial={{ scale: 0 }}
                   animate={{ scale: 1 }}
@@ -92,7 +92,7 @@ export function FloatingPanel({ isOpen, onClose }: FloatingPanelProps) {
                 <p className="text-sm text-secondary">Я скоро зв'яжуся</p>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="px-7 pb-8">
+              <form onSubmit={handleSubmit} className="px-5 pb-8 sm:px-7">
                 {status === 'error' && (
                   <div className="mb-4 flex items-center gap-2 rounded-xl bg-red-50 px-4 py-3">
                     <AlertCircle className="h-4 w-4 flex-shrink-0 text-red-500" />

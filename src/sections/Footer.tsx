@@ -4,7 +4,7 @@ const tgUser = '@svrnss';
 
 export function Footer() {
   return (
-    <footer className="w-full border-t border-dark/5 bg-bg px-6 py-12 lg:px-16 xl:px-24">
+    <footer className="w-full border-t border-dark/5 bg-bg px-6 py-12 md:px-12 lg:px-16 xl:px-24">
       <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 md:flex-row">
         <div className="text-sm text-secondary">
           {new Date().getFullYear()} SMM Specialist. Всі права захищені.
@@ -34,7 +34,7 @@ export function Footer() {
             href="https://krvtsv.netlify.app"
             target="_blank"
             rel="noopener noreferrer"
-            className="relative block whitespace-nowrap text-center text-[11px] font-bold uppercase tracking-widest text-rose-600 transition-colors hover:text-rose-500 md:text-[10px]"
+            className="relative block text-center text-[11px] font-bold uppercase tracking-widest text-rose-600 transition-colors hover:text-rose-500 md:text-[10px]"
           >
             Сайт зроблений KRVTSV CORP
           </a>

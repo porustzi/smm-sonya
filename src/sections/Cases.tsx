@@ -74,7 +74,7 @@ function PhoneMockup() {
 
 export function Cases() {
   return (
-    <section className="relative w-full overflow-hidden bg-bg px-6 py-28 lg:px-20 xl:px-28">
+    <section className="relative w-full overflow-hidden bg-bg px-6 py-28 md:px-12 lg:px-20 xl:px-28">
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute top-1/4 -left-40 h-[500px] w-[500px] rounded-full bg-primary/5 blur-3xl" />
         <div className="absolute bottom-1/4 -right-40 h-[500px] w-[500px] rounded-full bg-primary/5 blur-3xl" />
@@ -113,7 +113,7 @@ export function Cases() {
                 {topCase.description}
               </p>
 
-              <div className="mb-12 grid grid-cols-3 gap-5">
+              <div className="mb-12 grid grid-cols-1 gap-4 sm:grid-cols-3 sm:gap-5">
                 {topCase.results.map((r, i) => (
                   <motion.div
                     key={r.label}

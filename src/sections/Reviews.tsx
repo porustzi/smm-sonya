@@ -28,7 +28,7 @@ const reviews = [
 
 export function Reviews() {
   return (
-    <section className="relative w-full bg-bg px-6 py-24 lg:px-16 xl:px-24">
+    <section className="relative w-full bg-bg px-6 py-24 md:px-12 lg:px-16 xl:px-24">
       <div className="mx-auto max-w-7xl">
         <AnimatedSection className="mb-16 text-center">
           <h2 className="mb-4 text-3xl font-extrabold tracking-tight text-dark md:text-4xl">ВІДГУКИ</h2>

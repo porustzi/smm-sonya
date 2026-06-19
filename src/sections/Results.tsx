@@ -35,7 +35,7 @@ export function Results() {
   return (
     <section
       ref={ref}
-      className="relative w-full overflow-hidden bg-gradient-to-br from-primary/90 via-primary to-primary-hover px-6 py-24 lg:px-16 xl:px-24"
+      className="relative w-full overflow-hidden bg-gradient-to-br from-primary/90 via-primary to-primary-hover px-6 py-24 md:px-12 lg:px-16 xl:px-24"
     >
       {/* Soft blur decorations */}
       <div className="absolute -left-20 top-0 h-64 w-64 rounded-full bg-white/10 blur-3xl" />

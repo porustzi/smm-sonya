@@ -30,7 +30,7 @@ const tgUser = '@svrnss';
 
 export function Hero({ onOpenBooking }: HeroProps) {
   return (
-    <section className="relative min-h-screen w-full overflow-hidden bg-bg px-6 py-20 lg:px-16 xl:px-24">
+    <section className="relative min-h-screen w-full overflow-hidden bg-bg px-6 py-20 md:px-10 lg:px-16 xl:px-24">
       <FloatingBlob className="top-20 -left-20" size={400} color="rgba(255, 180, 106, 0.12)" delay={0} />
       <FloatingBlob className="top-60 right-0" size={350} color="rgba(255, 180, 106, 0.10)" delay={2} duration={10} />
       <FloatingBlob className="bottom-20 left-1/3" size={300} color="rgba(255, 156, 66, 0.08)" delay={1} duration={9} />
@@ -93,7 +93,7 @@ export function Hero({ onOpenBooking }: HeroProps) {
             </motion.a>
           </motion.div>
 
-          <motion.div variants={itemVariants} className="flex gap-12">
+          <motion.div variants={itemVariants} className="flex flex-wrap gap-x-12 gap-y-4">
             {[
               { num: '50+', label: 'Проєктів' },
               { num: '3+', label: 'Роки досвіду' },
