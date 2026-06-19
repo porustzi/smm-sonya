@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion';
-import { Instagram, TrendingUp, FileText, Video, User, ExternalLink } from 'lucide-react';
+import { Instagram, MessageCircle, ArrowRight, TrendingUp, FileText, Video, User } from 'lucide-react';
 import { FloatingBlob } from '../components/FloatingBlob';
-import { BookingForm } from '../components/BookingForm';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -29,16 +28,14 @@ interface HeroProps {
 
 const tgUser = '@svrnss';
 
-export function Hero(_props: HeroProps) {
+export function Hero({ onOpenBooking }: HeroProps) {
   return (
     <section className="relative min-h-screen w-full overflow-hidden bg-bg px-6 py-20 lg:px-16 xl:px-24">
-      {/* Floating blobs */}
       <FloatingBlob className="top-20 -left-20" size={400} color="rgba(255, 180, 106, 0.12)" delay={0} />
       <FloatingBlob className="top-60 right-0" size={350} color="rgba(255, 180, 106, 0.10)" delay={2} duration={10} />
       <FloatingBlob className="bottom-20 left-1/3" size={300} color="rgba(255, 156, 66, 0.08)" delay={1} duration={9} />
 
       <div className="relative z-10 mx-auto flex min-h-[80vh] max-w-7xl flex-col items-center justify-center gap-16 lg:flex-row lg:gap-8">
-        {/* Left side */}
         <motion.div
           className="flex flex-1 flex-col items-start"
           variants={containerVariants}
@@ -73,15 +70,25 @@ export function Hero(_props: HeroProps) {
             Допомагаю бізнесу, експертам та особистим брендам залучати клієнтів через контент, стратегію та сучасний SMM.
           </motion.p>
 
-          <motion.div variants={itemVariants} className="mb-12 w-full max-w-lg">
-            <BookingForm compact />
+          <motion.div variants={itemVariants} className="mb-12 flex flex-wrap items-center gap-4">
+            <motion.button
+              whileHover={{ scale: 1.03, y: -2 }}
+              whileTap={{ scale: 0.98 }}
+              onClick={onOpenBooking}
+              className="group inline-flex items-center gap-3 rounded-full bg-dark px-8 py-4 text-sm font-semibold text-white shadow-lg shadow-dark/10 transition-colors hover:bg-dark/90"
+            >
+              Обговорити проєкт
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+            </motion.button>
             <motion.a
               href={`https://t.me/${tgUser.replace('@', '')}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-3 inline-flex items-center gap-1.5 text-sm text-secondary transition-colors hover:text-primary"
+              whileHover={{ scale: 1.03, y: -2 }}
+              whileTap={{ scale: 0.98 }}
+              className="inline-flex items-center gap-2 rounded-full border border-secondary/20 bg-white px-8 py-4 text-sm font-semibold text-dark transition-colors hover:bg-secondary/5"
             >
-              <ExternalLink className="h-3.5 w-3.5" />
+              <MessageCircle className="h-4 w-4" />
               {tgUser}
             </motion.a>
           </motion.div>
@@ -100,14 +107,12 @@ export function Hero(_props: HeroProps) {
           </motion.div>
         </motion.div>
 
-        {/* Right side — Dashboard Card */}
         <motion.div
           className="relative flex flex-1 items-center justify-center"
           initial={{ opacity: 0, x: 60 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.9, delay: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
         >
-          {/* Decorative circles */}
           <motion.div
             className="absolute -top-10 -right-10 h-32 w-32 rounded-full border border-primary/20"
             animate={{ rotate: 360 }}
@@ -124,7 +129,6 @@ export function Hero(_props: HeroProps) {
             transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
           />
 
-          {/* Dashboard card */}
           <div className="relative w-full max-w-md rounded-[32px] bg-white p-8 shadow-2xl shadow-dark/5">
             <div className="mb-6 flex items-center justify-between">
               <div>
